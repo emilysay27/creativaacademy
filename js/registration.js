@@ -4,7 +4,7 @@
    save a form for the office to review and nothing else. Cloudflare Turnstile ("are you human") is checked by the CRM. */
 (function () {
   var SUPABASE_URL = 'https://drgwfjoirmgxwhclbaak.supabase.co';
-  var SUPABASE_ANON_KEY = 'REDACTED-SUPABASE-ANON-KEY';
+  var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRyZ3dmam9pcm1neHdoY2xiYWFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE0NzcwMTAsImV4cCI6MjEwNzA1MzAxMH0.S1CnUIgIwzM9J8Qaom1A2vfalTFpmtXo1oTmLLznlbI';
   var TURNSTILE_SITE_KEY = '0x4AAAAAAFUtCK5STGi_XECQ';
   var WAIT_FOR_CHECK_MS = 12000;
   var form = document.getElementById('reg-form');

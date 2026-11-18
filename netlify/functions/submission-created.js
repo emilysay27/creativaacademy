@@ -8,7 +8,7 @@
 // Supabase connection — the anon key is already public in the website's config.js,
 // so it is safe to use here. All tables are protected by row-level security.
 const SUPABASE_URL      = 'https://drgwfjoirmgxwhclbaak.supabase.co';
-const SUPABASE_ANON_KEY = 'REDACTED-SUPABASE-ANON-KEY';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRyZ3dmam9pcm1neHdoY2xiYWFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE0NzcwMTAsImV4cCI6MjEwNzA1MzAxMH0.S1CnUIgIwzM9J8Qaom1A2vfalTFpmtXo1oTmLLznlbI';
 
 const TELEGRAM_API = 'https://api.telegram.org';
 const MAX_MESSAGE  = 4096; // Telegram's hard limit
