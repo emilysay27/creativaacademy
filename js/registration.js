@@ -116,6 +116,12 @@
         body: JSON.stringify({ p_data: payload() })
       }).then(function (res) {
         if (res.ok) {
+          // Short Telegram heads-up for the office. It carries only the child's first name and classroom; the full form stays in the CRM.
+          try {
+            fetch('/.netlify/functions/registration-alert', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ child: val('child_first'), program: val('program') }), keepalive: true }).catch(function () {});
+          } catch (x) { /* the registration is already saved; ignore */ }
+          if (window.gtag) { try { window.gtag('event', 'registration_submitted', { event_category: 'enrollment' }); } catch (x) { /* ignore */ } }
           document.getElementById('reg-done-name').textContent = val('child_first') || 'your child';
           form.hidden = true;
           document.getElementById('reg-done').hidden = false;

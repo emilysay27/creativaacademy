@@ -51,11 +51,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/site.css">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-NLPTJMKF");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J6EB0N6JNV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-J6EB0N6JNV");</script>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLPTJMKF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div id="school-alert" class="school-alert school-alert--warning">
+  <span class="alert-msg"></span>
+  <button class="alert-dismiss" onclick="this.parentElement.className=this.parentElement.className.replace(' visible','')" aria-label="Dismiss">×</button>
+</div>
+<script src="/assets/js/alert.js"></script>
+
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<div class="topbar">Now enrolling for 2026–2027 · Reggio Emilia inspired · <a href="tel:7869000099">Call (786) 900-0099 to schedule a tour</a></div>
+<div class="topbar">Now enrolling for 2027–2028 · Open enrollment · <a href="tel:7869000099">Call (786) 900-0099 to schedule a tour</a></div>
 
 <header>
   <div class="wrap nav">
@@ -110,6 +121,18 @@
     </div>
   </div>
 </section>
+
+<!-- ── THIS WEEK'S THEME STRIP ──────────────────────────── -->
+<div class="theme-strip" id="themeStrip" style="display:none">
+  <div class="theme-strip-inner">
+    <div class="theme-label">
+      <span>✨ This Week's Theme:</span>
+      <strong id="themeText"></strong>
+      <span class="theme-week" id="themeWeek"></span>
+    </div>
+    <a class="theme-cal-link" href="/calendar/">View Calendar →</a>
+  </div>
+</div>
 
 <section class="why">
   <div class="wrap center">
@@ -182,53 +205,190 @@
     <div class="divider"><span>❦</span></div>
     <div class="review-overall">★★★★★ <span>4.8 on Google · 85 Reviews</span></div>
 
-    <div class="review-grid">
-      <article class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <blockquote>"The teachers are incredibly caring, patient, and attentive—they truly treat every child as their own. My child has developed so many new skills, from language and early math to art, music, and social interaction. Creativa Academy truly goes above and beyond—it's not just a preschool, it's a community where children feel loved, supported, and inspired."</blockquote>
-        <footer class="review-author">
-          <strong>Saadia Romero</strong>
-          <span>Google Review</span>
-        </footer>
-      </article>
+    <div class="review-carousel-outer" id="reviewCarousel">
+      <div class="review-carousel-track" id="reviewTrack">
 
-      <article class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <blockquote>"Creativa Academy provides a warm, secure atmosphere where children are encouraged to learn, explore, and grow. The educators and staff members are remarkable, attentive, patient, and wholeheartedly committed to the children in their care. You can feel their dedication the moment you walk through the door."</blockquote>
-        <footer class="review-author">
-          <strong>Prescilla Marie</strong>
-          <span>Google Review</span>
-        </footer>
-      </article>
+        <div class="review-carousel-cell">
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <blockquote>"The teachers are incredibly caring, patient, and attentive—they truly treat every child as their own. My child has developed so many new skills, from language and early math to art, music, and social interaction. Creativa Academy truly goes above and beyond—it's not just a preschool, it's a community where children feel loved, supported, and inspired."</blockquote>
+            <footer class="review-author">
+              <strong>Saadia Romero</strong>
+              <span>Google Review</span>
+            </footer>
+          </article>
+        </div>
 
-      <article class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <blockquote>"This school has been a second home for my child, a place where I can leave him and know that he is safe, loved, and receiving the best preschool education. The director, Mrs. Say, is the most passionate and caring person you will ever meet, and all the staff as well."</blockquote>
-        <footer class="review-author">
-          <strong>Monica Conejo</strong>
-          <span>Google Review</span>
-        </footer>
-      </article>
+        <div class="review-carousel-cell">
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <blockquote>"Creativa Academy provides a warm, secure atmosphere where children are encouraged to learn, explore, and grow. The educators and staff members are remarkable, attentive, patient, and wholeheartedly committed to the children in their care. You can feel their dedication the moment you walk through the door."</blockquote>
+            <footer class="review-author">
+              <strong>Prescilla Marie</strong>
+              <span>Google Review</span>
+            </footer>
+          </article>
+        </div>
+
+        <div class="review-carousel-cell">
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <blockquote>"This school has been a second home for my child, a place where I can leave him and know that he is safe, loved, and receiving the best preschool education. The director, Mrs. Say, is the most passionate and caring person you will ever meet, and all the staff as well."</blockquote>
+            <footer class="review-author">
+              <strong>Monica Conejo</strong>
+              <span>Google Review</span>
+            </footer>
+          </article>
+        </div>
+
+        <div class="review-carousel-cell">
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <blockquote>"We toured several preschools and nothing compared to the warmth we felt walking into Creativa. The Reggio approach is real here — you can see it in the children's art, their projects, the way teachers listen and ask questions. Our daughter has blossomed in ways we didn't expect."</blockquote>
+            <footer class="review-author">
+              <strong>Daniela Morales</strong>
+              <span>Google Review</span>
+            </footer>
+          </article>
+        </div>
+
+        <div class="review-carousel-cell">
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <blockquote>"From day one, the communication has been outstanding. I always know what my son is working on, what he ate, how his day went. The teachers genuinely love these children, and that makes all the difference. Creativa feels like family."</blockquote>
+            <footer class="review-author">
+              <strong>Carlos Espinoza</strong>
+              <span>Google Review</span>
+            </footer>
+          </article>
+        </div>
+
+        <div class="review-carousel-cell">
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <blockquote>"The enrichment activities alone — music, yoga, Spanish — are worth it. My child comes home every single day having learned something new and exciting. The staff is compassionate, professional, and truly invested in every child's growth."</blockquote>
+            <footer class="review-author">
+              <strong>Lisette Fuentes</strong>
+              <span>Google Review</span>
+            </footer>
+          </article>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="review-carousel-nav">
+      <button class="rcnav-btn" id="reviewPrev" aria-label="Previous reviews">&#8592;</button>
+      <div class="rc-dots" id="reviewDots"></div>
+      <button class="rcnav-btn" id="reviewNext" aria-label="Next reviews">&#8594;</button>
     </div>
 
     <a class="btn btn-solid" href="https://www.google.com/search?q=Creativa+Academy+West+Miami+reviews" target="_blank" rel="noopener">Read More Reviews on Google</a>
   </div>
 </section>
 
+<section class="month-events">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px">
+      <span class="eyebrow">School Calendar</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--ink);margin:6px 0 12px;text-wrap:balance">What's Happening in November</h2>
+      <p style="font-family:'Jost',sans-serif;font-size:1rem;color:rgba(59,68,48,.65);max-width:480px;margin:0 auto;line-height:1.65">Mark your calendars — here are the highlights for this month at Creativa.</p>
+    </div>
+    <div class="month-events-grid">
+
+      <div class="event-card highlight">
+        <div class="event-icon">📋</div>
+        <div class="event-body">
+          <div class="event-date">Now open · Deadline Nov. 20</div>
+          <h4>Open Registration Fall 2027–28</h4>
+          <p>Secure your child's spot today. $300 cash only.</p>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-icon">📸</div>
+        <div class="event-body">
+          <div class="event-date">Nov 9 & 10</div>
+          <h4>Christmas Pictures</h4>
+          <p>1st floor & Ms. Paty's class on Mon, 2nd floor on Tue.</p>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-icon">🇺🇸</div>
+        <div class="event-body">
+          <div class="event-date">Nov 11 — Wednesday</div>
+          <h4>Veterans Day</h4>
+          <p>School closed in honor of Veterans Day.</p>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-icon">🍽️</div>
+        <div class="event-body">
+          <div class="event-date">Nov 17 — Tuesday</div>
+          <h4>Texas Roadhouse Fundraiser</h4>
+          <p>Dine out and support Creativa Academy.</p>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-icon">🐴</div>
+        <div class="event-body">
+          <div class="event-date">Nov 18 — Wednesday</div>
+          <h4>Little Farm Visits</h4>
+          <p>Petting zoo & pony ride — come in Western dress-up!</p>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-icon">🦃</div>
+        <div class="event-body">
+          <div class="event-date">Nov 20 — Thursday</div>
+          <h4>Thanksgiving Lunch</h4>
+          <p>A special holiday meal together — come dressed in jeans!</p>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-icon">🎵</div>
+        <div class="event-body">
+          <div class="event-date">Nov 24 — Tuesday</div>
+          <h4>Music Class</h4>
+          <p>Our monthly music enrichment session for all classrooms.</p>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-icon">🍂</div>
+        <div class="event-body">
+          <div class="event-date">Nov 26 — Thursday</div>
+          <h4>Happy Thanksgiving!</h4>
+          <p>School closed — enjoy the holiday with your family.</p>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <a class="btn btn-line" href="/calendar/">View Full November Calendar</a>
+    </div>
+  </div>
+</section>
+
 <section class="insta-section">
   <div class="wrap center">
     <span class="eyebrow">Follow Along</span>
-    <h2>Life at Creativa</h2>
+    <h2>A Peek Inside Creativa</h2>
     <p class="insta-handle">@creativaacademy.miami</p>
-    <div class="insta-grid">
-      <a href="https://www.instagram.com/creativaacademy.miami/" target="_blank" rel="noopener" class="insta-tile"><img src="/assets/img/gallery/gal-01-thumb.jpg" alt="Creativa Academy" loading="lazy"></a>
-      <a href="https://www.instagram.com/creativaacademy.miami/" target="_blank" rel="noopener" class="insta-tile"><img src="/assets/img/gallery/gal-02-thumb.jpg" alt="Creativa Academy" loading="lazy"></a>
-      <a href="https://www.instagram.com/creativaacademy.miami/" target="_blank" rel="noopener" class="insta-tile"><img src="/assets/img/gallery/gal-03-thumb.jpg" alt="Creativa Academy" loading="lazy"></a>
-      <a href="https://www.instagram.com/creativaacademy.miami/" target="_blank" rel="noopener" class="insta-tile"><img src="/assets/img/gallery/gal-04-thumb.jpg" alt="Creativa Academy" loading="lazy"></a>
-      <a href="https://www.instagram.com/creativaacademy.miami/" target="_blank" rel="noopener" class="insta-tile"><img src="/assets/img/gallery/gal-05-thumb.jpg" alt="Creativa Academy" loading="lazy"></a>
-      <a href="https://www.instagram.com/creativaacademy.miami/" target="_blank" rel="noopener" class="insta-tile"><img src="/assets/img/gallery/gal-06-thumb.jpg" alt="Creativa Academy" loading="lazy"></a>
-    </div>
-    <a class="btn btn-line" href="https://www.instagram.com/creativaacademy.miami/" target="_blank" rel="noopener">Follow Us on Instagram</a>
+    <behold-widget feed-id="CGpvdrBwHO5zGxoshleF"></behold-widget>
+    <script>
+      (() => {
+        if(window.__bhldScript)return;window.__bhldScript=true;
+        const d=document,s=d.createElement("script");s.type="module";
+        s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
+      })();
+    </script>
+    <a class="btn btn-line" style="margin-top:32px;display:inline-block" href="https://www.instagram.com/creativaacademy.miami/" target="_blank" rel="noopener">Follow Us on Instagram</a>
   </div>
 </section>
 
@@ -258,7 +418,9 @@
     <div class="logo"><img src="/assets/img/home/logo.png" alt="Creativa Academy — A Reggio Emilia Inspired School" width="498" height="177"></div>
     <div class="tag">Where Children Learn, Grow &amp; Thrive.</div>
     <div class="foot-links">
-      <a href="/">Home</a><a href="/about/">About Us</a><a href="/team/">Meet Our Team</a><a href="/#programs">Programs</a><a href="/tuition-financial-aid/">Tuition &amp; Financial Aid</a><a href="/activities/">Activities</a><a href="/calendar/">Calendar</a><a href="/menu/">Menu</a><a href="/parent-resources/">Parent Resources</a><a href="/gallery/">Gallery</a><a href="/contact/">Contact</a>
+      <a href="/">Home</a><a href="/about/">About Us</a><a href="/team/">Meet Our Team</a><a href="/#programs">Programs</a><a href="/tuition-financial-aid/">Tuition &amp; Financial Aid</a><a href="/activities/">Activities</a><a href="/calendar/">Calendar</a><a href="/menu/">Menu</a><a href="/parent-resources/">Parent Resources</a><a href="/gallery/">Gallery</a><a href="/contact/">Contact</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/blog/">Blog</a>
     </div>
     <div class="foot-social"><a href="https://www.instagram.com/creativaacademy.miami/" target="_blank" rel="noopener">Instagram</a></div>
     <div class="foot-legal">© 2026 Creativa Academy · A Reggio Emilia Inspired School · West Miami, FL</div>
@@ -284,6 +446,131 @@
       toggle.setAttribute('aria-label', 'Open menu');
     });
   });
+})();
+
+/* ── THIS WEEK'S THEME ───────────────────────────────────── */
+(function(){
+  var THEMES = [
+    { start: '2026-11-02', theme: 'Transportation', emoji: '🚗' },
+    { start: '2026-11-09', theme: 'Fall & Nature', emoji: '🍂' },
+    { start: '2026-11-16', theme: 'Farm Animals', emoji: '🐄' },
+    { start: '2026-11-23', theme: 'Thanksgiving & Gratitude', emoji: '🦃' },
+    { start: '2026-11-30', theme: 'Winter Wonderland', emoji: '❄️' },
+    { start: '2026-12-07', theme: 'Christmas & Giving', emoji: '🎄' },
+    { start: '2026-12-14', theme: 'Holiday Traditions', emoji: '🎁' },
+    { start: '2027-01-05', theme: 'Space & Stars', emoji: '🚀' },
+    { start: '2027-01-12', theme: 'Animals of the Ocean', emoji: '🐠' },
+    { start: '2027-01-19', theme: 'Community Helpers', emoji: '👩‍🚒' },
+    { start: '2027-01-26', theme: 'Dinosaurs', emoji: '🦕' },
+    { start: '2027-02-02', theme: 'Weather & Seasons', emoji: '🌦️' },
+    { start: '2027-02-09', theme: 'Valentine\'s & Kindness', emoji: '❤️' },
+    { start: '2027-02-16', theme: 'Music & Movement', emoji: '🎵' },
+    { start: '2027-02-23', theme: 'Plants & Gardens', emoji: '🌱' },
+    { start: '2027-03-01', theme: 'Dr. Seuss & Books', emoji: '📚' },
+    { start: '2027-03-08', theme: 'Colors & Light', emoji: '🌈' },
+    { start: '2027-03-15', theme: 'Bugs & Butterflies', emoji: '🦋' },
+    { start: '2027-03-22', theme: 'Spring', emoji: '🌸' },
+    { start: '2027-04-05', theme: 'Earth & Nature', emoji: '🌍' },
+  ];
+
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function parseDate(str) {
+    var p = str.split('-');
+    return new Date(+p[0], +p[1]-1, +p[2]);
+  }
+
+  function weekLabel(d) {
+    var fri = new Date(d); fri.setDate(fri.getDate() + 4);
+    var m1 = MONTHS[d.getMonth()], m2 = MONTHS[fri.getMonth()];
+    return 'Week of ' + m1 + ' ' + d.getDate() + (m1===m2 ? '–' : ' – '+m2+' ') + fri.getDate();
+  }
+
+  var today = new Date(); today.setHours(0,0,0,0);
+  var dow = today.getDay(); // 0=Sun, 6=Sat
+  var current = null;
+  for (var i = THEMES.length - 1; i >= 0; i--) {
+    var s = parseDate(THEMES[i].start);
+    if (today >= s) { current = THEMES[i]; current._startDate = s; break; }
+  }
+  /* On weekends, show next school week's theme (parents planning ahead) */
+  if (current && (dow === 0 || dow === 6)) {
+    var nextIdx = (current === THEMES[THEMES.length-1]) ? -1 : THEMES.indexOf(current) + 1;
+    if (nextIdx > -1) { current = THEMES[nextIdx]; current._startDate = parseDate(THEMES[nextIdx].start); }
+  }
+
+  if (!current) return;
+  var strip = document.getElementById('themeStrip');
+  var txt   = document.getElementById('themeText');
+  var wk    = document.getElementById('themeWeek');
+  if (!strip || !txt) return;
+  txt.textContent = current.emoji + ' ' + current.theme;
+  if (wk) wk.textContent = weekLabel(current._startDate);
+  strip.style.display = '';
+})();
+
+/* ── REVIEW CAROUSEL ─────────────────────────────────────── */
+(function(){
+  var track  = document.getElementById('reviewTrack');
+  var dots   = document.getElementById('reviewDots');
+  var prev   = document.getElementById('reviewPrev');
+  var next   = document.getElementById('reviewNext');
+  if (!track || !dots || !prev || !next) return;
+
+  var cells   = track.querySelectorAll('.review-carousel-cell');
+  var total   = cells.length;
+  var perView = window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+  var maxIdx  = Math.max(0, total - perView);
+  var idx     = 0;
+  var autoTimer;
+
+  /* Size cells */
+  function sizeUp() {
+    perView = window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+    maxIdx  = Math.max(0, total - perView);
+    if (idx > maxIdx) idx = maxIdx;
+    var pct = 100 / perView;
+    cells.forEach(function(c){ c.style.width = 'calc(' + pct + '% - 12px)'; });
+    renderDots();
+    go(idx, false);
+  }
+
+  /* Dots */
+  function renderDots() {
+    dots.innerHTML = '';
+    var pages = maxIdx + 1;
+    for (var i = 0; i < pages; i++) {
+      var d = document.createElement('button');
+      d.className = 'rc-dot' + (i === idx ? ' active' : '');
+      d.setAttribute('aria-label', 'Go to page ' + (i+1));
+      (function(i){ d.addEventListener('click', function(){ go(i); }); })(i);
+      dots.appendChild(d);
+    }
+  }
+
+  function go(n, animate) {
+    if (animate === false) track.style.transition = 'none';
+    else track.style.transition = '';
+    idx = Math.max(0, Math.min(n, maxIdx));
+    var cellW = cells[0].getBoundingClientRect().width + 16;
+    track.style.transform = 'translateX(-' + (idx * cellW) + 'px)';
+    dots.querySelectorAll('.rc-dot').forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+    if (animate === false) setTimeout(function(){ track.style.transition = ''; }, 20);
+  }
+
+  function autoPlay() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function(){
+      go(idx >= maxIdx ? 0 : idx + 1);
+    }, 6000);
+  }
+
+  prev.addEventListener('click', function(){ go(idx - 1); autoPlay(); });
+  next.addEventListener('click', function(){ go(idx + 1); autoPlay(); });
+  window.addEventListener('resize', function(){ sizeUp(); });
+
+  sizeUp();
+  autoPlay();
 })();
 </script>
 

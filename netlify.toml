@@ -1,0 +1,98 @@
+# Creativa Academy — Netlify configuration
+# Static site: no build step needed.
+
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# --- Registration / enrollment URL aliases → /register/ ---
+
+[[redirects]]
+  from = "/registration"
+  to = "/register/"
+  status = 301
+
+[[redirects]]
+  from = "/registration/"
+  to = "/register/"
+  status = 301
+
+[[redirects]]
+  from = "/enroll"
+  to = "/register/"
+  status = 301
+
+[[redirects]]
+  from = "/enroll/"
+  to = "/register/"
+  status = 301
+
+[[redirects]]
+  from = "/enrollment"
+  to = "/register/"
+  status = 301
+
+[[redirects]]
+  from = "/enrollment/"
+  to = "/register/"
+  status = 301
+
+# --- Redirects from old Wix URLs (SEO preservation) ---
+
+[[redirects]]
+  from = "/reggio-emilia-inspired"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/forms"
+  to = "/parent-resources/"
+  status = 301
+
+[[redirects]]
+  from = "/book-online"
+  to = "/tuition-financial-aid/"
+  status = 301
+
+[[redirects]]
+  from = "/programs"
+  to = "/#programs"
+  status = 301
+
+[[redirects]]
+  from = "/members"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/cart-page"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/service-page/*"
+  to = "/tuition-financial-aid/"
+  status = 301
+
+[[redirects]]
+  from = "/challenge-page/*"
+  to = "/"
+  status = 301
+
+# --- Headers ---
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"

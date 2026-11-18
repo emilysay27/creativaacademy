@@ -45,11 +45,21 @@
 .tour-note{font-family:'Jost',sans-serif;font-size:.8rem;color:var(--ink);opacity:.5;margin-top:10px;line-height:1.55}
 @media(max-width:600px){.tour-card{padding:28px 22px}.tour-row{grid-template-columns:1fr}.tour-radio-row,.tour-check-row{gap:12px}}
 </style>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-NLPTJMKF");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J6EB0N6JNV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-J6EB0N6JNV");</script>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLPTJMKF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="school-alert" class="school-alert school-alert--warning">
+  <span class="alert-msg"></span>
+  <button class="alert-dismiss" onclick="this.parentElement.className=this.parentElement.className.replace(' visible','')" aria-label="Dismiss">×</button>
+</div>
+<script src="/assets/js/alert.js"></script>
+
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<div class="topbar">Now enrolling for 2026–2027 · Reggio Emilia inspired · <a href="tel:7869000099">Call (786) 900-0099</a></div>
+<div class="topbar">Now enrolling for 2027–2028 · Open enrollment · <a href="tel:7869000099">Call (786) 900-0099</a></div>
 
 <header>
   <div class="wrap nav">
@@ -67,6 +77,8 @@
         <li><a href="/parent-resources/">Parent Resources</a></li>
         <li class="nav-hide-desk"><a href="/gallery/">Gallery</a></li>
         <li><a href="/contact/">Contact</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li class="nav-hide-desk"><a href="/family-support/">Family Support</a></li>
       </ul>
       <div class="nav-mobile-ctas">
@@ -101,7 +113,7 @@
     </div>
 
     <div class="tour-card" id="tour-card">
-      <form id='tour-form' method='POST' name='schedule-tour' novalidate data-netlify='true' netlify-honeypot='bot-field'>
+      <form id="tour-form" name="schedule-tour" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
         <input type="hidden" name="form-name" value="schedule-tour">
         <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
 
@@ -125,11 +137,12 @@
         <div class="field">
           <label for="phone">Phone Number <span style="color:#b94a3a">*</span></label>
           <input id="phone" type="tel" name="phone" required autocomplete="tel" placeholder="(786) 000-0000">
+          <p class="sms-note" style="margin:6px 0 0;font-size:12.5px;line-height:1.45;opacity:.75">By sharing your phone number, you agree that Creativa Academy may text you about your inquiry and tour (for example, a reminder the day before). Usually 1–3 messages. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. <a href="/privacy/">Privacy policy</a></p>
         </div>
 
         <div class="field">
-          <label id="contact-pref-label">Best way to reach you <span style="color:#b94a3a">*</span></label>
-          <div class="tour-radio-row" role="radiogroup" aria-labelledby="contact-pref-label" aria-required="true">
+          <label>Best way to reach you <span style="color:#b94a3a">*</span></label>
+          <div class="tour-radio-row">
             <label><input type="radio" name="contact-pref" value="Text" required> Text</label>
             <label><input type="radio" name="contact-pref" value="Phone call"> Phone call</label>
             <label><input type="radio" name="contact-pref" value="Email"> Email</label>
@@ -186,10 +199,28 @@
 
         <hr class="tour-divider">
 
+        <!-- About Your Little One -->
+        <p style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--ink);margin:0 0 20px;font-style:italic">Share a little bit about your little one</p>
+
+        <div class="field">
+          <label>Have they been in school before? <span style="color:#b94a3a">*</span></label>
+          <div class="tour-radio-row">
+            <label><input type="radio" name="been-in-school" value="Yes" required> Yes</label>
+            <label><input type="radio" name="been-in-school" value="No"> No</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="looking-for">What is it that you're looking for in a school? <span style="color:#b94a3a">*</span></label>
+          <textarea id="looking-for" name="looking-for" required placeholder="Tell us what matters most to your family — learning environment, language, schedule, community, or anything else on your mind."></textarea>
+        </div>
+
+        <hr class="tour-divider">
+
         <!-- Tour Preferences -->
         <div class="field">
-          <label id="days-label">Preferred days to visit <span style="color:#b94a3a">*</span> <span style="color:var(--ink);opacity:.45;font-size:.78rem;text-transform:none;letter-spacing:normal;font-weight:400">(select all that work)</span></label>
-          <div class="tour-check-row" role="group" aria-labelledby="days-label" aria-required="true">
+          <label>Preferred days to visit <span style="color:#b94a3a">*</span> <span style="color:var(--ink);opacity:.45;font-size:.78rem;text-transform:none;letter-spacing:normal;font-weight:400">(select all that work)</span></label>
+          <div class="tour-check-row" id="days-group">
             <label><input type="checkbox" name="days[]" value="Monday"> Monday</label>
             <label><input type="checkbox" name="days[]" value="Tuesday"> Tuesday</label>
             <label><input type="checkbox" name="days[]" value="Wednesday"> Wednesday</label>
@@ -199,8 +230,8 @@
         </div>
 
         <div class="field">
-          <label id="time-pref-label">Preferred tour time <span style="color:#b94a3a">*</span> <span style="color:var(--ink);opacity:.45;font-size:.78rem;text-transform:none;letter-spacing:normal;font-weight:400">(tours run Monday – Friday)</span></label>
-          <div class="tour-radio-row" role="radiogroup" aria-labelledby="time-pref-label" aria-required="true">
+          <label>Preferred tour time <span style="color:#b94a3a">*</span> <span style="color:var(--ink);opacity:.45;font-size:.78rem;text-transform:none;letter-spacing:normal;font-weight:400">(tours run Monday – Friday)</span></label>
+          <div class="tour-radio-row">
             <label><input type="radio" name="time-pref" value="9:00 am" required> 9:00 am</label>
             <label><input type="radio" name="time-pref" value="9:30 am"> 9:30 am</label>
             <label><input type="radio" name="time-pref" value="10:00 am"> 10:00 am</label>
@@ -209,7 +240,7 @@
 
         <div class="field">
           <label for="notes">Questions or anything you'd like us to know <span style="color:#b94a3a">*</span></label>
-          <textarea id="notes" name="notes" required placeholder="Ask us anything — about programs, tuition, scholarships, or what a typical day looks like. No questions? Just write “None”."></textarea>
+          <textarea id="notes" name="notes" required placeholder="Ask us anything — about programs, tuition, scholarships, or what a typical day looks like."></textarea>
         </div>
 
         <div class="field">
@@ -266,7 +297,9 @@
     <div class="logo"><img src="/assets/img/home/logo.png" alt="Creativa Academy — A Reggio Emilia Inspired School" width="498" height="177"></div>
     <div class="tag">Where Children Learn, Grow &amp; Thrive.</div>
     <div class="foot-links">
-      <a href="/">Home</a><a href="/about/">About Us</a><a href="/team/">Meet Our Team</a><a href="/#programs">Programs</a><a href="/tuition-financial-aid/">Tuition &amp; Financial Aid</a><a href="/activities/">Activities</a><a href="/calendar/">Calendar</a><a href="/menu/">Menu</a><a href="/parent-resources/">Parent Resources</a><a href="/gallery/">Gallery</a><a href="/contact/">Contact</a>
+      <a href="/">Home</a><a href="/about/">About Us</a><a href="/team/">Meet Our Team</a><a href="/#programs">Programs</a><a href="/tuition-financial-aid/">Tuition &amp; Financial Aid</a><a href="/activities/">Activities</a><a href="/calendar/">Calendar</a><a href="/menu/">Menu</a><a href="/parent-resources/">Parent Resources</a><a href="/gallery/">Gallery</a><a href="/contact/">Contact</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/blog/">Blog</a>
     </div>
     <div class="foot-social"><a href="https://www.instagram.com/creativaacademy.miami/" target="_blank" rel="noopener">Instagram</a></div>
     <div class="foot-legal">© 2026 Creativa Academy · A Reggio Emilia Inspired School · West Miami, FL</div>
@@ -298,36 +331,25 @@
   var sel = document.getElementById('referral');
   var wrap = document.getElementById('referrer-name-wrap');
   var inp = document.getElementById('referrer-name');
-  function apply(){
+  sel.addEventListener('change', function(){
     var show = sel.value === 'Friend or family';
     wrap.hidden = !show;
     inp.required = show;
     if (!show) inp.value = '';
-  }
-  sel.addEventListener('change', apply);
-  /* The browser may refill the form (Back button) without a change event */
-  window.addEventListener('pageshow', apply);
-  window.addEventListener('submit', function(e){ if (e.target && e.target.id === 'tour-form') apply(); }, true);
-})();
-
-/* Preferred days: at least one (checkbox groups have no built-in "required") */
-(function(){
-  var days = document.querySelectorAll('#tour-form input[name="days[]"]');
-  function sync(){
-    var any = Array.prototype.some.call(days, function(d){ return d.checked; });
-    days[0].setCustomValidity(any ? '' : 'Please pick at least one day that works for a tour.');
-  }
-  Array.prototype.forEach.call(days, function(d){ d.addEventListener('change', sync); });
-  sync();
-  /* The browser may refill the form (Back button) without a change event; check again before anything reads it */
-  window.addEventListener('pageshow', sync);
-  window.addEventListener('submit', function(e){ if (e.target && e.target.id === 'tour-form') sync(); }, true);
+  });
 })();
 
 document.getElementById('tour-form').addEventListener('submit', function(e){
   e.preventDefault();
-  /* Required fields (the form is novalidate, so the browser won't check them itself) */
-  if (!this.checkValidity()) { this.reportValidity(); return; }
+  var days = document.querySelectorAll('input[name="days[]"]:checked');
+  if (days.length === 0) {
+    var group = document.getElementById('days-group');
+    group.scrollIntoView({behavior:'smooth', block:'center'});
+    group.style.outline = '2px solid #b94a3a';
+    group.style.borderRadius = '6px';
+    setTimeout(function(){ group.style.outline = ''; }, 3000);
+    return;
+  }
   var btn = document.getElementById('tour-btn');
   btn.disabled = true;
   btn.textContent = 'Sending…';
@@ -350,6 +372,5 @@ document.getElementById('tour-form').addEventListener('submit', function(e){
 });
 </script>
 
-<script src="/js/crm-capture.js" defer></script>
 </body>
 </html>
