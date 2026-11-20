@@ -82,6 +82,20 @@
   to = "/"
   status = 301
 
+# --- Notes for Claude and developers: in the repository, not on the website ---
+
+[[redirects]]
+  from = "/CLAUDE.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
 # --- Headers ---
 
 [[headers]]

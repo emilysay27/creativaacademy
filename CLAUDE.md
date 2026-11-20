@@ -17,7 +17,7 @@ The owner edits this site only by asking Claude. She is not technical: explain i
 ## Don't break
 - Form tags must keep `data-netlify="true"` and `netlify-honeypot`. Netlify strips them from served pages, but the forms stop working without them in the source.
 - Keep the texting consent line (`class="sms-note"`) under every phone field.
-- `SUPABASE_ANON_KEY` in `js/registration.js` and `netlify/functions/submission-created.js` is the public "anon" key and is meant to be there. Never add service keys, tokens, `.env` files, or family/staff personal information: this repository is public.
+- `SUPABASE_ANON_KEY` in `js/registration.js` is the public "anon" key and is meant to be there. Never add service keys, tokens, `.env` files, or family/staff personal information: this repository is public.
 
 ## Facts to keep consistent across pages
 - Music and yoga are **monthly**. Spanish circle time is daily.
