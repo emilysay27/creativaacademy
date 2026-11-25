@@ -92,7 +92,7 @@
     <span class="eyebrow fade-up">A Gift for Every Parent</span>
     <h2 style="margin-top:14px" class="fade-up">What Is Parents Night Out?</h2>
     <div class="divider fade-up"><span>❦</span></div>
-    <p class="pno-about-text fade-up">Once or twice a month on selected Saturdays, Creativa Academy opens its doors for an exclusive evening program for our children. While your child enjoys a full evening of dinner, creative activities, games, and dancing with teachers they already know and love, you get to reclaim your evening — guilt-free. Every session is carefully staffed, safe, and sensory-rich. Because great parents need great nights out too.</p>
+    <p class="pno-about-text fade-up">Every Saturday (except holidays), Creativa Academy opens its doors for an exclusive evening program for our children. While your child enjoys a full evening of dinner, creative activities, games, and dancing with teachers they already know and love, you get to reclaim your evening — guilt-free. Every session is carefully staffed, safe, and sensory-rich. Because great parents need great nights out too.</p>
   </div>
 </section>
 
@@ -240,7 +240,7 @@
           </div>
           <div class="field" style="margin-top:18px">
             <label for="req-date">Preferred Date(s)</label>
-            <input type="text" id="req-date" name="preferred_dates" placeholder="e.g. Any Saturday in November" required>
+            <input type="text" id="req-date" name="preferred_dates" placeholder="e.g. A Saturday in January" required>
           </div>
           <div class="field" style="margin-top:18px">
             <label for="req-note">Anything else we should know?</label>
@@ -294,15 +294,7 @@
           <label for="bk-date">Preferred Date *</label>
           <select id="bk-date" name="preferred_date" required>
             <option value="">— Select a date —</option>
-            <option value="Saturday, November 21, 2026">Saturday, November 21, 2026</option>
-            <option value="Saturday, November 28, 2026">Saturday, November 28, 2026</option>
-            <option value="Saturday, December 5, 2026">Saturday, December 5, 2026</option>
-            <option value="Saturday, December 12, 2026">Saturday, December 12, 2026</option>
-            <option value="Saturday, December 19, 2026">Saturday, December 19, 2026</option>
-            <option value="Saturday, January 9, 2027">Saturday, January 9, 2027</option>
-            <option value="Saturday, January 23, 2027">Saturday, January 23, 2027</option>
-            <option value="Saturday, February 6, 2027">Saturday, February 6, 2027</option>
-            <option value="Saturday, February 20, 2027">Saturday, February 20, 2027</option>
+            <!-- Dates are filled in automatically: every Saturday except the holidays listed in the calendar script below. -->
           </select>
         </div>
 
@@ -437,9 +429,7 @@
     <div class="logo"><img src="/assets/img/home/logo.png" alt="Creativa Academy — A Reggio Emilia Inspired School" width="498" height="177"></div>
     <div class="tag">Where Children Learn, Grow &amp; Thrive.</div>
     <div class="foot-links">
-      <a href="/">Home</a><a href="/about/">About Us</a><a href="/#programs">Programs</a><a href="/tuition-financial-aid/">Tuition &amp; Financial Aid</a><a href="/activities/">Activities</a><a href="/calendar/">Calendar</a><a href="/menu/">Menu</a><a href="/parent-resources/">Parent Resources</a><a href="/gallery/">Gallery</a><a href="/contact/">Contact</a></li>
-        <li><a href="/faq/">FAQ</a></li>
-        <li><a href="/blog/">Blog</a>
+      <a href="/">Home</a><a href="/about/">About Us</a><a href="/#programs">Programs</a><a href="/tuition-financial-aid/">Tuition &amp; Financial Aid</a><a href="/activities/">Activities</a><a href="/calendar/">Calendar</a><a href="/menu/">Menu</a><a href="/parent-resources/">Parent Resources</a><a href="/gallery/">Gallery</a><a href="/contact/">Contact</a><a href="/faq/">FAQ</a><a href="/blog/">Blog</a>
     </div>
     <div class="foot-social"><a href="https://www.instagram.com/creativaacademy.miami/" target="_blank" rel="noopener">Instagram</a></div>
     <div class="foot-legal">© 2026 Creativa Academy · A Reggio Emilia Inspired School · West Miami, FL</div>
@@ -503,23 +493,53 @@ document.getElementById('toggleRequest').addEventListener('click', function(){
 (function(){
   var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-  /* Event data — update dates & spot counts as needed */
-  var EVENTS = [
-    { y:2026, m:7,  d:1,  title:'Saturday, August 1',     filled:5,  total:15, status:'available' },
-    { y:2026, m:7,  d:15, title:'Saturday, August 15',    filled:11, total:15, status:'limited'   },
-    { y:2026, m:8,  d:5,  title:'Saturday, September 5',  filled:2,  total:15, status:'available' },
-    { y:2026, m:8,  d:19, title:'Saturday, September 19', filled:15, total:15, status:'soldout'   },
-    { y:2026, m:9,  d:3,  title:'Saturday, October 3',    filled:0,  total:15, status:'available' },
-    { y:2026, m:9,  d:17, title:'Saturday, October 17',  filled:0,  total:15, status:'available' },
-    { y:2026, m:10, d:7,  title:'Saturday, November 7',  filled:0,  total:15, status:'available' },
-    { y:2026, m:10, d:14, title:'Saturday, November 14', filled:0,  total:15, status:'available' },
-    { y:2026, m:10, d:21, title:'Saturday, November 21', filled:0,  total:15, status:'available' },
-    { y:2026, m:10, d:28, title:'Saturday, November 28', filled:0,  total:15, status:'available' },
-    { y:2026, m:11, d:5,  title:'Saturday, December 5',  filled:0,  total:15, status:'available' },
-    { y:2026, m:11, d:12, title:'Saturday, December 12', filled:0,  total:15, status:'available' },
-    { y:2026, m:11, d:19, title:'Saturday, December 19', filled:0,  total:15, status:'available' },
-    { y:2026, m:11, d:26, title:'Saturday, December 26', filled:0,  total:15, status:'available' }
-  ];
+  /* Every Saturday is open, except the holiday Saturdays below.
+     Dates are made automatically for the next 6 months.
+     Add a date to HOLIDAYS to close it ('YYYY-MM-DD').
+     To mark a date as filling up or full, add it to SPOTS, e.g.
+     '2027-01-09': { filled: 12, status: 'limited' }  or  { filled: 15, status: 'soldout' } */
+  var HOLIDAYS = {
+    '2026-11-28': 'Thanksgiving weekend',
+    '2026-12-26': 'Christmas weekend',
+    '2027-01-02': 'New Year\'s weekend',
+    '2027-03-27': 'Easter weekend',
+    '2027-05-29': 'Memorial Day weekend',
+    '2027-07-03': 'Fourth of July weekend',
+    '2027-09-04': 'Labor Day weekend',
+    '2027-11-27': 'Thanksgiving weekend',
+    '2027-12-25': 'Christmas Day',
+    '2028-01-01': 'New Year\'s Day'
+  };
+  var SPOTS = {};
+  var TOTAL = 15, MONTHS_AHEAD = 6;
+
+  function iso(dt){ return dt.getFullYear() + '-' + ('0' + (dt.getMonth() + 1)).slice(-2) + '-' + ('0' + dt.getDate()).slice(-2); }
+  var EVENTS = [];
+  (function(){
+    var start = new Date(); start.setHours(0,0,0,0);
+    var end = new Date(start.getFullYear(), start.getMonth() + MONTHS_AHEAD + 1, 0);
+    var dt = new Date(start); dt.setDate(dt.getDate() + ((6 - dt.getDay() + 7) % 7));
+    for(; dt <= end; dt.setDate(dt.getDate() + 7)){
+      var k = iso(dt);
+      if(HOLIDAYS[k]) continue;
+      var sp = SPOTS[k] || {};
+      EVENTS.push({ y: dt.getFullYear(), m: dt.getMonth(), d: dt.getDate(),
+        title: 'Saturday, ' + MONTHS[dt.getMonth()] + ' ' + dt.getDate(),
+        filled: sp.filled || 0, total: TOTAL, status: sp.status || 'available' });
+    }
+  })();
+
+  /* Fill the booking form's date list with the same dates */
+  (function(){
+    var sel = document.getElementById('bk-date');
+    if(!sel) return;
+    EVENTS.forEach(function(e){
+      if(e.status === 'soldout') return;
+      var label = e.title + ', ' + e.y;
+      var o = document.createElement('option'); o.value = label; o.textContent = label;
+      sel.appendChild(o);
+    });
+  })();
 
   /* Build a lookup key */
   function key(y, m, d){ return y + '-' + m + '-' + d; }
@@ -528,8 +548,10 @@ document.getElementById('toggleRequest').addEventListener('click', function(){
 
   /* State */
   var today = new Date();
-  var curYear  = 2026;
-  var curMonth = 9; /* 0-indexed: Oct = 9 */
+  var firstEv = EVENTS[0] || { y: today.getFullYear(), m: today.getMonth() };
+  var lastEv  = EVENTS[EVENTS.length - 1] || firstEv;
+  var curYear  = firstEv.y;
+  var curMonth = firstEv.m;
 
   function render(){
     document.getElementById('calTitle').textContent = MONTHS[curMonth] + ' ' + curYear;
@@ -573,8 +595,8 @@ document.getElementById('toggleRequest').addEventListener('click', function(){
     }}
 
     /* Disable prev/next at schedule boundaries */
-    document.getElementById('calPrev').disabled = (curYear <= 2026 && curMonth <= 9);
-    document.getElementById('calNext').disabled = (curYear >= 2026 && curMonth >= 11);
+    document.getElementById('calPrev').disabled = (curYear * 12 + curMonth) <= (firstEv.y * 12 + firstEv.m);
+    document.getElementById('calNext').disabled = (curYear * 12 + curMonth) >= (lastEv.y * 12 + lastEv.m);
   }
 
   function showEvent(ev, cell){
@@ -582,7 +604,7 @@ document.getElementById('toggleRequest').addEventListener('click', function(){
     cell.classList.add('cal-selected');
 
     var detail = document.getElementById('eventDetail');
-    document.getElementById('evTitle').textContent = ev.title + ', 2026';
+    document.getElementById('evTitle').textContent = ev.title + ', ' + ev.y;
     document.getElementById('evMeta').innerHTML = '5:00 PM – 10:00 PM &nbsp;·&nbsp; 13910 SW 8th St, West Miami, FL';
     var pct = Math.round((ev.filled / ev.total) * 100);
     document.getElementById('evBar').style.width = pct + '%';
@@ -604,7 +626,7 @@ document.getElementById('toggleRequest').addEventListener('click', function(){
         '<p style="font-family:Jost,sans-serif;font-size:.9rem;color:rgba(59,68,48,.7);margin:0 0 18px">Join the waitlist and we\'ll contact you if a spot opens up.</p>' +
         '<form name="pno-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="pno-waitlist-form">' +
         '<input type="hidden" name="form-name" value="pno-waitlist">' +
-        '<input type="hidden" name="event_date" value="' + ev.title + ', 2026">' +
+        '<input type="hidden" name="event_date" value="' + ev.title + ', ' + ev.y + '">' +
         '<p style="display:none"><label>Skip: <input name="bot-field"></label></p>' +
         '<div class="pno-form-row">' +
         '<div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>' +
