@@ -174,5 +174,6 @@
 <script>
 (function(){var toggle=document.querySelector('.nav-toggle'),nav=document.querySelector('header nav');if(!toggle||!nav)return;toggle.addEventListener('click',function(){var open=nav.classList.toggle('open');toggle.classList.toggle('active',open);toggle.setAttribute('aria-expanded',open?'true':'false');toggle.setAttribute('aria-label',open?'Close menu':'Open menu');});nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');toggle.classList.remove('active');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open menu');});});})();
 </script>
+<script src="/assets/js/holiday.js" defer></script>
 </body>
 </html>
